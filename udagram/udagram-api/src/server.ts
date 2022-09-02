@@ -18,7 +18,8 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   console.log("Database Connected");
 
   const app = express();
-  const port = process.env.PORT || 8080;
+  // const port = process.env.PORT || 8080;
+  app.set('port', (process.env.PORT || 8080)); // 5000 was my original port
 
   app.use(bodyParser.json());
 
@@ -46,8 +47,8 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
   });
 
   // Start the Server
-  app.listen(port, () => {
-    console.log(`Backend server is listening on port ${port}....`);
+  app.listen(app.get('port'), () => {
+    console.log(`Backend server is listening on port ${app.get('port')}....`);
     console.log(`Frontent server running ${process.env.URL}`);
     console.log(`press CTRL+C to stop server`);
   });
