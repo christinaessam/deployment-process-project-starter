@@ -13,7 +13,7 @@
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
     "deploy": "npm run build && eb list && eb use Udagramapi-env && eb deploy",
-    "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
+    "build": "npm install . && npm run clean && npm run cleanArchive && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && mkdir -p ./archive/www &&cp -R www archive/www && cp .npmrc archive/.npmrc && cp Procfile archive/Procfile && cp tsconfig.json archive/tsconfig.json && cp tslint.json archive/tslint.json && cp package.json archive/package.json && cd archive && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
