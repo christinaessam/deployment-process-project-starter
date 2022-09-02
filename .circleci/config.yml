@@ -66,6 +66,8 @@ jobs:
           command: |
             echo "# TODO: Install, build, deploy in both apps"
             npm run install
+            chmod +x ../environment.sh
+            ../environment.sh
             npm run build
             npm run deploy
 
