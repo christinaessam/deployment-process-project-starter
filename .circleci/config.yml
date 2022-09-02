@@ -25,11 +25,11 @@ jobs:
             echo $(npm --version)
             npm run frontend:install
        # TODO: Lint the frontend
-      - run:
-          name: Front-End Lint
-          command: |
-            echo "Lint the frontend"
-            npm run frontend:lint
+      # - run:
+      #     name: Front-End Lint
+      #     command: |
+      #       echo "Lint the frontend"
+      #       npm run frontend:lint
 
       # TODO: Build the frontend app
       - run:
